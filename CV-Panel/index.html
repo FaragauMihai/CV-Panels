@@ -1,13 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Ads</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            height: auto;
+            animation: pageFadeIn 1.2s ease-in-out;
+            display: flex;
+            justify-content: center;
+            /*align-items: center;*/
+        }
+
+        /* Page Intro Animation */
+        @keyframes pageFadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Main container */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            margin: 11% 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        h2:hover {
+            color: #ffeb3b;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .company-list {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .company {
+            text-align: center;
+        }
+
+        .company img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .company img:hover {
+            transform: scale(1.1);
+        }
+
+        .image-container {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            margin-bottom: 20px;
+        }
+
+        .image-container.show {
+            display: grid;
+            opacity: 1;
+            transform: scale(1);
+            justify-content: center;    
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* Background Pattern to show technical skill */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(#ffeb3b 1px, transparent 1px), radial-gradient(#ffeb3b 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            z-index: -1;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Faragau Mihai - Panels ads</h1>
+        <p>The panel ads is a feature that I worked during my career at VeGlobal and it was used from e-commerce to booking platforms</p>
+        <p>The main structure had a banner with promotion descriptions or different offers - discount code, promotion days, etc.</p>
+        <p>Depending on the client products and requirements, a product list would be displayed with the desired products along with the price and description</p>
+
+        <div class="company-list">
+            <div>
+                <div class="company">
+                    <h2 onclick="showCompany(1)">Company A</h2>
+                    <img src="https://via.placeholder.com/50" alt="Company A Logo" onclick="showCompany(1)">
+                </div>
+                <div class="company">
+                    <h2 onclick="showCompany(2)">Company B</h2>
+                    <img src="https://via.placeholder.com/50" alt="Company B Logo" onclick="showCompany(2)">
+                </div>
+                <div class="company">
+                    <h2 onclick="showCompany(3)">Company C</h2>
+                    <img src="https://via.placeholder.com/50" alt="Company C Logo" onclick="showCompany(3)">
+                </div>
+            </div>            
+            <div>
+                <div class="company">
+                    <h2 onclick="showCompany(4)">Company D</h2>
+                    <img src="https://via.placeholder.com/50" alt="Company A Logo" onclick="showCompany(1)">
+                </div>
+                <div class="company">
+                    <h2 onclick="showCompany(5)">Company E</h2>
+                    <img src="https://via.placeholder.com/50" alt="Company B Logo" onclick="showCompany(2)">
+                </div>
+                <div class="company">
+                    <h2 onclick="showCompany(6)">Company F</h2>
+                    <img src="https://via.placeholder.com/50" alt="Company C Logo" onclick="showCompany(3)">
+                </div>
+            </div>
+        </div>
+
+        <div id="company1" class="image-container">
+            <img src="https://via.placeholder.com/800x400" alt="Company A Panel Mockup">
+            <img src="https://via.placeholder.com/800x400" alt="Company A Panel Mockup">
+        </div>
+
+        <div id="company2" class="image-container">
+            <img src="https://via.placeholder.com/800x400" alt="Company B Panel Mockup">
+            <img src="https://via.placeholder.com/800x400" alt="Company B Panel Mockup">
+        </div>
+
+        <div id="company3" class="image-container">
+            <img src="https://via.placeholder.com/800x400" alt="Company C Panel Mockup">
+            <img src="https://via.placeholder.com/800x400" alt="Company C Panel Mockup">
+        </div>
+
+        <div id="company1" class="image-container">
+            <img src="https://via.placeholder.com/800x400" alt="Company A Panel Mockup">
+            <img src="https://via.placeholder.com/800x400" alt="Company A Panel Mockup">
+        </div>
+
+        <div id="company2" class="image-container">
+            <img src="https://via.placeholder.com/800x400" alt="Company B Panel Mockup">
+            <img src="https://via.placeholder.com/800x400" alt="Company B Panel Mockup">
+        </div>
+
+        <div id="company3" class="image-container">
+            <img src="https://via.placeholder.com/800x400" alt="Company C Panel Mockup">
+            <img src="https://via.placeholder.com/800x400" alt="Company C Panel Mockup">
+        </div>
+    </div>
+
+    <script>
+        let currentCompany = null;
+
+        function showCompany(companyId) {
+            if (currentCompany === companyId) return;
+
+            // Hide previous company if it exists
+            if (currentCompany !== null) {
+                document.getElementById('company' + currentCompany).classList.remove('show');
+            }
+
+            // Show the selected company with transition
+            document.getElementById('company' + companyId).classList.add('show');
+            currentCompany = companyId;
+        }
+    </script>
+
+</body>
 </html>
