@@ -109,7 +109,21 @@
             margin-top: 10px;
         }
 
-        /* Background Pattern to show technical skill */
+        /* Background Pattern to show technical skill 
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /*background-image: radial-gradient(#ffeb3b 1px, transparent 1px), radial-gradient(#ffeb3b 1px, transparent 1px);
+            /*background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            z-index: -1;
+            opacity: 0.2;
+        }*/
+
         body::before {
             content: "";
             position: absolute;
@@ -122,6 +136,7 @@
             background-position: 0 0, 15px 15px;
             z-index: -1;
             opacity: 0.2;
+            position: fixed;
         }
     </style>
 </head>
